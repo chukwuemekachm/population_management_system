@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
-import { DatabaseService } from 'src/database/database.service';
+import { DatabaseService } from '../database/database.service';
 import { CreateLocationDTO, Location, LocationDTO } from './location.dto';
-import { transformToSnaKeCase } from 'src/utils';
+import { transformToSnaKeCase } from '../utils';
 
 @Injectable()
 export class LocationService {
