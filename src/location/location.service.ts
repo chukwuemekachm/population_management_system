@@ -13,7 +13,7 @@ export class LocationService {
       const query = `
         INSERT INTO location(location_name, male_population, female_population)
         VALUES($1, $2, $3)
-        RETURNING location_name, male_population, female_population, created_at, updated_at;
+        RETURNING id, location_name, male_population, female_population, created_at, updated_at;
       `;
       const values = [locationName, malePopulation, femalePopulation];
       const { rows: [row] } = await this.databaseService.pool.query(query, values);
@@ -26,7 +26,7 @@ export class LocationService {
   async get(condition: Location): Promise<Location[]> {
     try {
       let query = `
-        SELECT location_name, male_population, female_population, created_at, updated_at
+        SELECT id, location_name, male_population, female_population, created_at, updated_at
         FROM location
         WHERE 1=1
       `;
@@ -84,7 +84,8 @@ export class LocationService {
         values.push(condition[key]);
       }
       query += ';';
-      return this.databaseService.pool.query(query, values);
+      await this.databaseService.pool.query(query, values);
+      return true;
     } catch (error) {
       throw error;
     }

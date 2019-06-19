@@ -1,4 +1,4 @@
-import { IsString, MaxLength, MinLength, IsInt } from 'class-validator';
+import { IsString, MaxLength, MinLength, IsInt, IsOptional } from 'class-validator';
 
 export interface Location {
   id: string;
@@ -26,10 +26,27 @@ export class CreateLocationDTO {
   public readonly locationName: string;
 
   @IsInt()
-  public readonly malePopulation: string;
+  public readonly malePopulation: number;
 
   @IsInt()
-  public readonly femalePopulation: string;
+  public readonly femalePopulation: number;
+}
+
+// tslint:disable-next-line:max-classes-per-file
+export class UpdateLocationDTO {
+  @IsString()
+  @MinLength(2)
+  @MaxLength(50)
+  @IsOptional()
+  public readonly locationName?: string;
+
+  @IsInt()
+  @IsOptional()
+  public readonly malePopulation?: string;
+
+  @IsInt()
+  @IsOptional()
+  public readonly femalePopulation?: string;
 }
 
 // tslint:disable-next-line:max-classes-per-file
