@@ -6,7 +6,7 @@ CREATE TABLE location
   id uuid NOT NULL DEFAULT uuid_generate_v4(),
 	location_name VARCHAR(50) NOT NULL UNIQUE,
 	male_population INT NOT NULL,
-	female_population TIMESTAMP NOT NULL,
+	female_population INT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
 	PRIMARY KEY (id)
