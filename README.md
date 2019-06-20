@@ -2,6 +2,8 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=popout-square&logo=typescript&logoColor=teal)
 
+[![CircleCI](https://circleci.com/gh/chukwuemekachm/population_management_system.svg?style=svg)](https://circleci.com/gh/chukwuemekachm/population_management_system)
+
 Population Management System contains a list of locations and the total number of residents in each location broken down by gender.
 
 The system was built for my D1 ➣ D2 advancement and provides an API that enables you to:
